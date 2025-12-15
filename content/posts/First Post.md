@@ -12,6 +12,7 @@ I welcome you to my first blog post on my first blog. Here you will find random 
 
 ## How it's done
 I'm a geek and a nerd at heart so I'm not going the "easy" way. I'm giving credit to [Networkchuck](https://networkchuck.com/) for the idea.
+
 ### Obsidian
 Posts are in a "Blog" directory in [Obsidian](https://obsidian.md/) (click the link to learn more).
 
@@ -19,5 +20,5 @@ Posts are in a "Blog" directory in [Obsidian](https://obsidian.md/) (click the l
 The web-site itself is generated using [Hugo](https://gohugo.io), a fast open-source static web-site generator written in Go.
 
 ### Hosting
-I host everything in GCP, as I already have a Google Cloud account that I am using in my journey towards becoming a Cloud Developer.
+GitHub pages allows us to host a static web-site from a GitHub repository so this seems like a great fit.
 
