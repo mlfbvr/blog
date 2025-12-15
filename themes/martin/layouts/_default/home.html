@@ -1,0 +1,8 @@
+{{ define "main" }}
+  {{ .Content }}
+  {{ range site.RegularPages }}
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    <h3>{{ .Date.Format "Jan 2, 2006" }}</h3>
+    {{ .Summary }}
+  {{ end }}
+{{ end }}
