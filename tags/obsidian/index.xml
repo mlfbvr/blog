@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Obsidian on Martin Lefebvre&#39;s blog</title>
-    <link>http://localhost:1313/tags/obsidian/</link>
+    <link>https://example.org/tags/obsidian/</link>
     <description>Recent content in Obsidian on Martin Lefebvre&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 14 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/obsidian/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.org/tags/obsidian/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Blog (post)</title>
-      <link>http://localhost:1313/posts/blog/first-post/</link>
+      <link>https://example.org/posts/blog/first-post/</link>
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/blog/first-post/</guid>
+      <guid>https://example.org/posts/blog/first-post/</guid>
       <description>Welcome I welcome you to my first blog post on my first blog. Here you will find random thoughts, tech and development tips I find interesting, and other fun things (for me).&#xA;How it&amp;rsquo;s done I&amp;rsquo;m a geek and a nerd at heart so I&amp;rsquo;m not going the &amp;ldquo;easy&amp;rdquo; way. I&amp;rsquo;m giving credit to Networkchuck for the idea.&#xA;Obsidian Posts are in a &amp;ldquo;Blog&amp;rdquo; directory in Obsidian (click the link to learn more).</description>
     </item>
   </channel>
