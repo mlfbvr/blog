@@ -2,42 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.org/tags/database/</loc>
+    <loc>https://mlfbvr.github.io/blog/tags/database/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/design_patterns/</loc>
+    <loc>https://mlfbvr.github.io/blog/tags/design_patterns/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/javascript/</loc>
+    <loc>https://mlfbvr.github.io/blog/tags/javascript/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/</loc>
+    <loc>https://mlfbvr.github.io/blog/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/</loc>
+    <loc>https://mlfbvr.github.io/blog/posts/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/</loc>
+    <loc>https://mlfbvr.github.io/blog/tags/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/blog/the-singleton/</loc>
+    <loc>https://mlfbvr.github.io/blog/posts/blog/the-singleton/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/typestript/</loc>
+    <loc>https://mlfbvr.github.io/blog/tags/typestript/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/blog/</loc>
+    <loc>https://mlfbvr.github.io/blog/tags/blog/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/hugo/</loc>
+    <loc>https://mlfbvr.github.io/blog/tags/hugo/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/blog/first-post/</loc>
+    <loc>https://mlfbvr.github.io/blog/posts/blog/first-post/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/obsidian/</loc>
+    <loc>https://mlfbvr.github.io/blog/tags/obsidian/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.org/categories/</loc>
+    <loc>https://mlfbvr.github.io/blog/categories/</loc>
   </url>
 </urlset>
