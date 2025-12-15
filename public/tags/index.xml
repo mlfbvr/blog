@@ -2,59 +2,59 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Martin Lefebvre&#39;s blog</title>
-    <link>https://example.org/tags/</link>
+    <link>https://mlfbvr.github.io/blog/tags/</link>
     <description>Recent content in Tags on Martin Lefebvre&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 15 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://example.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://mlfbvr.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Database</title>
-      <link>https://example.org/tags/database/</link>
+      <link>https://mlfbvr.github.io/blog/tags/database/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/database/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/database/</guid>
       <description></description>
     </item>
     <item>
       <title>Design_patterns</title>
-      <link>https://example.org/tags/design_patterns/</link>
+      <link>https://mlfbvr.github.io/blog/tags/design_patterns/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/design_patterns/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/design_patterns/</guid>
       <description></description>
     </item>
     <item>
       <title>Javascript</title>
-      <link>https://example.org/tags/javascript/</link>
+      <link>https://mlfbvr.github.io/blog/tags/javascript/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/javascript/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>Typestript</title>
-      <link>https://example.org/tags/typestript/</link>
+      <link>https://mlfbvr.github.io/blog/tags/typestript/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/typestript/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/typestript/</guid>
       <description></description>
     </item>
     <item>
       <title>Blog</title>
-      <link>https://example.org/tags/blog/</link>
+      <link>https://mlfbvr.github.io/blog/tags/blog/</link>
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/blog/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/blog/</guid>
       <description></description>
     </item>
     <item>
       <title>Hugo</title>
-      <link>https://example.org/tags/hugo/</link>
+      <link>https://mlfbvr.github.io/blog/tags/hugo/</link>
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/hugo/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>Obsidian</title>
-      <link>https://example.org/tags/obsidian/</link>
+      <link>https://mlfbvr.github.io/blog/tags/obsidian/</link>
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://example.org/tags/obsidian/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/obsidian/</guid>
       <description></description>
     </item>
   </channel>
