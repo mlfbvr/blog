@@ -1,4 +1,4 @@
-baseURL = 'https://blog.martinlefebvre.com/'
+baseURL = 'https://mlfbvr.github.io/blog/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 
