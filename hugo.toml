@@ -1,3 +1,4 @@
 baseURL = 'https://mlfbvr.github.io/blog/'
 languageCode = 'en-us'
 title = "Martin Lefebvre's blog"
+theme = "martin"

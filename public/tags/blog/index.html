@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>Blog | Martin Lefebvre&#39;s blog</title>
 
-    <link rel="stylesheet" href="/blog/css/main.css">
+      <link rel="stylesheet" href="/blog/css/main.min.1120657266840fc1e3a8050e6455431bfdfe4786fc5d3cc236ecc1de7ff231bb.css" integrity="sha256-ESBlcmaED8HjqAUOZFVDG/3&#43;R4b8XTzCNuzB3n/yMbs=" crossorigin="anonymous">
 
 
-      <script src="/blog/js/main.js"></script>
+      <script src="/blog/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js" integrity="sha256-I80MfYNyY7nq65buLZzPopadqj&#43;gD6HB/ocBqbhyUaE=" crossorigin="anonymous"></script>
 
 
 </head>
@@ -36,6 +36,9 @@
     
   <h1>Blog</h1>
   
+  
+    <h2><a href="/blog/posts/how-to-publish-my-obsidian-based-blog/">How to publish my Obsidian-based blog</a></h2>
+    $ rsync -a --delete --info=NAME &lt;path to blog subdir in Obsidian vault&gt; &lt;path to hugo-managed site&gt;/content/posts/ $ cd &lt;hugo-managed site&gt; $ hugo $ git add . $ git commit -m &#34;&lt;Commit Message&gt;&#34; $ git push $ git subtree split --prefix public -b public_site $ git push origin public_site:public_site --force $ git branch -D public_site 
   
     <h2><a href="/blog/posts/first-post/">From Dial-Up to Docker... A Developer&#39;s Journey</a></h2>
     Hello and welcome to my personal blog! My name is Martin Lefebvre, and I&rsquo;m a full-stack software developer with a passion for technology that has spanned over two decades. With 20 years in software development and 30 years of experience with Linux, I&rsquo;ve had a front-row seat to the incredible evolution of our industry. This blog is where I&rsquo;ll be sharing my insights, experiences, and thoughts on the ever-changing world of tech.

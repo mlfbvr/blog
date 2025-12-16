@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Martin Lefebvre&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 16 Dec 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://mlfbvr.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to publish my Obsidian-based blog</title>
+      <link>https://mlfbvr.github.io/blog/posts/how-to-publish-my-obsidian-based-blog/</link>
+      <pubDate>Tue, 16 Dec 2025 00:00:00 +0000</pubDate>
+      <guid>https://mlfbvr.github.io/blog/posts/how-to-publish-my-obsidian-based-blog/</guid>
+      <description>$ rsync -a --delete --info=NAME &amp;lt;path to blog subdir in Obsidian vault&amp;gt; &amp;lt;path to hugo-managed site&amp;gt;/content/posts/ $ cd &amp;lt;hugo-managed site&amp;gt; $ hugo $ git add . $ git commit -m &amp;#34;&amp;lt;Commit Message&amp;gt;&amp;#34; $ git push $ git subtree split --prefix public -b public_site $ git push origin public_site:public_site --force $ git branch -D public_site </description>
+    </item>
     <item>
       <title>The Singleton</title>
       <link>https://mlfbvr.github.io/blog/posts/the-singleton/</link>

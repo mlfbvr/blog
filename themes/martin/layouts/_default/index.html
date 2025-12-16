@@ -1,0 +1,21 @@
+{{ define "main" }}
+  <section id="home">
+    <h1>{{ .Title }}</h1>
+    
+    <!-- This pulls content from your content/_index.md file -->
+    <div class="content">
+      {{ .Content }}
+    </div>
+
+    <!-- This lists your most recent posts/pages -->
+    <h2>Recent Posts</h2>
+    <ul>
+      {{ range first 10 .Site.RegularPages }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <time>{{ .Date.Format "January 2, 2006" }}</time>
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}
