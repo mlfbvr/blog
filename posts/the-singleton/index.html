@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>The Singleton | Martin Lefebvre&#39;s blog</title>
+
+    <link rel="stylesheet" href="/blog/css/main.css">
+
+
+      <script src="/blog/js/main.js"></script>
+
+
+</head>
+<body>
+  <header>
+    <h1>Martin Lefebvre&#39;s blog</h1>
+
+  <nav>
+    <ul>
+    <li>
+      <a href="/blog/">Home</a>
+    </li>
+    <li>
+      <a aria-current="true" class="ancestor" href="/blog/posts/">Posts</a>
+    </li>
+    <li>
+      <a href="/blog/tags/">Tags</a>
+    </li>
+    </ul>
+  </nav>
+
+
+  </header>
+  <main>
+    
+  <h1>The Singleton</h1>
+
+  
+  
+  <time datetime="2025-12-15T00:00:00&#43;00:00">December 15, 2025</time>
+
+  <h1 id="handling-mysql-connections-in-typescript-the-good-the-bad-and-the-too-many-connections-error">Handling MySQL Connections in TypeScript: The Good, the Bad, and the “Too Many Connections” Error</h1>
+<p>When building a TypeScript application that talks to MySQL, how you manage database connections matters more than it might initially appear. A seemingly harmless pattern can quietly work its way into production and, under load, bring your application down with the dreaded:</p>
+<blockquote>
+<p><strong>Error: Too many connections</strong></p>
+</blockquote>
+<p>In this post, we will look at a <strong>bad but common approach</strong> to handling MySQL connections, why it causes problems, and then contrast it with a <strong>simple, effective approach</strong> that leverages ES modules and the Singleton pattern—without classes.</p>
+<hr>
+<h2 id="the-bad-way-creating-a-new-connection-per-request">The Bad Way: Creating a New Connection Per Request</h2>
+<p>A very common mistake is to create a new MySQL connection every time the database is accessed, without checking whether a connection already exists.</p>
+<p>At first glance, this approach looks straightforward and works fine during development or low traffic. The issue only appears once your application sees real usage.</p>
+<h3 id="example-a-new-connection-every-time">Example: A New Connection Every Time</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// db.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">mysql</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;mysql2/promise&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getConnection() {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">mysql</span>.<span style="color:#a6e22e">createConnection</span>({
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;localhost&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;app_user&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">password</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;secret&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">database</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;app_db&#34;</span>,
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// userRepository.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">getConnection</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;./db&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getUsers() {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">connection</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">getConnection</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">rows</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">query</span>(<span style="color:#e6db74">&#34;SELECT * FROM users&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">rows</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="why-this-is-a-problem">Why This Is a Problem</h3>
+<p>Each call to <code>getConnection()</code> opens a <strong>brand new TCP connection</strong> to MySQL. In a real application:</p>
+<ul>
+<li>Every HTTP request may open one or more database connections</li>
+<li>Connections may not be closed promptly—or at all</li>
+<li>Under concurrent load, MySQL’s connection limit is quickly exhausted</li>
+</ul>
+<p>MySQL has a <strong>finite number of allowed connections</strong>, and once they are used up, new queries will fail until existing connections are released.</p>
+<p>This approach scales poorly and fails in exactly the situations where you need reliability the most.</p>
+<hr>
+<h2 id="the-good-way-a-singleton-connection-via-es-modules">The Good Way: A Singleton Connection via ES Modules</h2>
+<p>A better approach is to <strong>open the connection once and reuse it</strong>.</p>
+<p>In Node.js, ES modules are cached after their first import. This gives us a natural and elegant way to implement a Singleton—without classes, frameworks, or complexity.</p>
+<h3 id="example-a-singleton-mysql-connection">Example: A Singleton MySQL Connection</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// db.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">mysql</span> <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;mysql2/promise&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">connection</span>: <span style="color:#66d9ef">mysql.Connection</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">null</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getConnection() {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">connection</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">connection</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">mysql</span>.<span style="color:#a6e22e">createConnection</span>({
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">host</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;localhost&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">user</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;app_user&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">password</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;secret&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">database</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;app_db&#34;</span>,
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">connection</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// userRepository.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">getConnection</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#34;./db&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getUsers() {</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">connection</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">getConnection</span>();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> [<span style="color:#a6e22e">rows</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">connection</span>.<span style="color:#a6e22e">query</span>(<span style="color:#e6db74">&#34;SELECT * FROM users&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">rows</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="why-this-works">Why This Works</h3>
+<ul>
+<li>The <code>db.ts</code> module is loaded once and cached by Node.js</li>
+<li>The <code>connection</code> variable persists for the lifetime of the process</li>
+<li>Every call to <code>getConnection()</code> returns the same MySQL connection</li>
+<li>You avoid opening unnecessary connections and exhausting MySQL resources</li>
+</ul>
+<p>This pattern dramatically reduces connection churn and is suitable for many small-to-medium applications.</p>
+<hr>
+<h2 id="a-quick-note-on-connection-pools">A Quick Note on Connection Pools</h2>
+<p>In higher-throughput systems, you will typically want a <strong>connection pool</strong> rather than a single connection. The same Singleton principle applies: create the pool once and reuse it everywhere.</p>
+<p>The key takeaway remains the same:</p>
+<blockquote>
+<p><strong>Never open a new MySQL connection for every request without a clear lifecycle strategy.</strong></p>
+</blockquote>
+<hr>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Connection management is one of those details that feels minor—until it isn’t. The “bad” approach often slips into codebases because it is easy and works early on. The “good” approach takes only a few extra lines of code and saves you from production outages later.</p>
+<p>By leveraging ES module caching and a simple Singleton pattern, you can keep your TypeScript applications efficient, stable, and friendly to your MySQL server.</p>
+<p>If you are seeing “too many connections” errors, this is one of the first places worth revisiting.</p>
+
+  
+  <div>
+    <div>Tags:</div>
+    <ul>
+        <li><a href="/blog/tags/design_patterns/">Design_patterns</a></li>
+        <li><a href="/blog/tags/database/">Database</a></li>
+        <li><a href="/blog/tags/typestript/">Typestript</a></li>
+        <li><a href="/blog/tags/javascript/">Javascript</a></li>
+    </ul>
+  </div>
+
+
+  </main>
+  <footer>
+    <p>Copyright 2025. All rights reserved.</p>
+
+  </footer>
+</body>
+</html>
