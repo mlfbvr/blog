@@ -1,7 +1,7 @@
 ---
 title: The Singleton
 date: 2025-12-15
-draft: true
+draft: false
 tags:
   - design_patterns
   - database

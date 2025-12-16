@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Myself on Martin Lefebvre&#39;s blog</title>
-    <link>http://localhost:1313/blog/tags/myself/</link>
+    <link>https://mlfbvr.github.io/blog/tags/myself/</link>
     <description>Recent content in Myself on Martin Lefebvre&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 14 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/myself/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://mlfbvr.github.io/blog/tags/myself/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>From Dial-Up to Docker... A Developer&#39;s Journey</title>
-      <link>http://localhost:1313/blog/posts/first-post/</link>
+      <link>https://mlfbvr.github.io/blog/posts/first-post/</link>
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/posts/first-post/</guid>
+      <guid>https://mlfbvr.github.io/blog/posts/first-post/</guid>
       <description>Hello and welcome to my personal blog! My name is Martin Lefebvre, and I&amp;rsquo;m a full-stack software developer with a passion for technology that has spanned over two decades. With 20 years in software development and 30 years of experience with Linux, I&amp;rsquo;ve had a front-row seat to the incredible evolution of our industry. This blog is where I&amp;rsquo;ll be sharing my insights, experiences, and thoughts on the ever-changing world of tech.</description>
     </item>
   </channel>
