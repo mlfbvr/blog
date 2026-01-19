@@ -3,18 +3,37 @@ body {
   color: #ddd;
   font-family: sans-serif;
   line-height: 1.5;
-  margin: 1rem;
-  max-width: 768px;
+  margin: 1rem auto;
+  max-width: 1024px;
 }
 
 header {
   border-bottom: 1px solid #222;
   margin-bottom: 1rem;
+  position: sticky;
+  background-color: #000;
+  top: 0;
+}
+
+header ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+
+main ul {
+  list-style: none;
+}
+
+main li {
+  margin-bottom: 0.5rem;
 }
 
 footer {
   border-top: 1px solid #222;
   margin-top: 1rem;
+  text-align: center;
 }
 
 a {
