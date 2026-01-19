@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Design_patterns on Martin Lefebvre&#39;s blog</title>
-    <link>https://mlfbvr.github.io/blog/tags/design_patterns/</link>
+    <link>http://localhost:1313/blog/tags/design_patterns/</link>
     <description>Recent content in Design_patterns on Martin Lefebvre&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://mlfbvr.github.io/blog/tags/design_patterns/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/tags/design_patterns/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SOLID -- Single Responsibility Principle</title>
+      <link>http://localhost:1313/blog/posts/solid----single-responsibility-principle/</link>
+      <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/blog/posts/solid----single-responsibility-principle/</guid>
+      <description>Ever since I started looking for work, something has become extremely clear &amp;ndash; while I am familiar with the practical aspects of software design and development, a lot of the theoretical patterns are beyond fuzzy.&#xA;To address this, I have gone back to studying some of the basic design patterns and principles, starting with SOLID, which came to light in the early 2000s.&#xA;Single Responsibility Principle&#xA;The first of these five software design principles is the &amp;ldquo;Single Responsibility Principle&amp;rdquo;.</description>
+    </item>
     <item>
       <title>The Singleton</title>
-      <link>https://mlfbvr.github.io/blog/posts/the-singleton/</link>
+      <link>http://localhost:1313/blog/posts/the-singleton/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://mlfbvr.github.io/blog/posts/the-singleton/</guid>
+      <guid>http://localhost:1313/blog/posts/the-singleton/</guid>
       <description>Handling MySQL Connections in TypeScript: The Good, the Bad, and the “Too Many Connections” Error When building a TypeScript application that talks to MySQL, how you manage database connections matters more than it might initially appear. A seemingly harmless pattern can quietly work its way into production and, under load, bring your application down with the dreaded:&#xA;Error: Too many connections&#xA;In this post, we will look at a bad but common approach to handling MySQL connections, why it causes problems, and then contrast it with a simple, effective approach that leverages ES modules and the Singleton pattern—without classes.</description>
     </item>
   </channel>

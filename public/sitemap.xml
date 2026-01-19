@@ -2,45 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://mlfbvr.github.io/blog/tags/blog/</loc>
+    <loc>http://localhost:1313/blog/tags/blog/</loc>
+    <lastmod>2026-01-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/tags/design_patterns/</loc>
+    <lastmod>2026-01-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/posts/</loc>
+    <lastmod>2026-01-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/tags/solid/</loc>
+    <lastmod>2026-01-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/posts/solid----single-responsibility-principle/</loc>
+    <lastmod>2026-01-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/tags/</loc>
+    <lastmod>2026-01-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/posts/how-to-publish-my-obsidian-based-blog/</loc>
     <lastmod>2025-12-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mlfbvr.github.io/blog/posts/how-to-publish-my-obsidian-based-blog/</loc>
-    <lastmod>2025-12-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://mlfbvr.github.io/blog/posts/</loc>
-    <lastmod>2025-12-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://mlfbvr.github.io/blog/tags/</loc>
-    <lastmod>2025-12-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://mlfbvr.github.io/blog/tags/database/</loc>
+    <loc>http://localhost:1313/blog/tags/database/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mlfbvr.github.io/blog/tags/design_patterns/</loc>
+    <loc>http://localhost:1313/blog/tags/javascript/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mlfbvr.github.io/blog/tags/javascript/</loc>
+    <loc>http://localhost:1313/blog/posts/the-singleton/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mlfbvr.github.io/blog/posts/the-singleton/</loc>
+    <loc>http://localhost:1313/blog/tags/typestript/</loc>
     <lastmod>2025-12-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mlfbvr.github.io/blog/tags/typestript/</loc>
-    <lastmod>2025-12-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://mlfbvr.github.io/blog/tags/career/</loc>
+    <loc>http://localhost:1313/blog/tags/career/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mlfbvr.github.io/blog/posts/first-post/</loc>
+    <loc>http://localhost:1313/blog/posts/first-post/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mlfbvr.github.io/blog/tags/myself/</loc>
+    <loc>http://localhost:1313/blog/tags/myself/</loc>
     <lastmod>2025-12-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://mlfbvr.github.io/blog/</loc>
+    <loc>http://localhost:1313/blog/</loc>
     <lastmod>2023-01-01T08:00:00-07:00</lastmod>
   </url><url>
-    <loc>https://mlfbvr.github.io/blog/categories/</loc>
+    <loc>http://localhost:1313/blog/categories/</loc>
   </url>
 </urlset>
