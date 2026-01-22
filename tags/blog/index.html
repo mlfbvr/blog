@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>Blog | Martin Lefebvre&#39;s blog</title>
 
-    <link rel="stylesheet" href="/blog/css/main.css">
+      <link rel="stylesheet" href="/blog/css/main.min.7280a742b1934e03c107f9e403a3579672846a60896f832b9d1347d1f3ac0e0e.css" integrity="sha256-coCnQrGTTgPBB/nkA6NXlnKEamCJb4MrnRNH0fOsDg4=" crossorigin="anonymous">
 
 
-      <script src="/blog/js/main.js"></script>
+      <script src="/blog/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js" integrity="sha256-I80MfYNyY7nq65buLZzPopadqj&#43;gD6HB/ocBqbhyUaE=" crossorigin="anonymous"></script>
 
 
 </head>
@@ -40,8 +40,7 @@
     <h2><a href="/blog/posts/solid----single-responsibility-principle/">SOLID -- Single Responsibility Principle</a></h2>
     Ever since I started looking for work, something has become extremely clear &ndash; while I am familiar with the practical aspects of software design and development, a lot of the theoretical patterns are beyond fuzzy.
 To address this, I have gone back to studying some of the basic design patterns and principles, starting with SOLID, which came to light in the early 2000s.
-Single Responsibility Principle
-The first of these five software design principles is the &ldquo;Single Responsibility Principle&rdquo;.
+Single Responsibility Principle The first of these five software design principles is the &ldquo;Single Responsibility Principle&rdquo;.
   
     <h2><a href="/blog/posts/how-to-publish-my-obsidian-based-blog/">How to publish my Obsidian-based blog</a></h2>
     $ rsync -a --delete --info=NAME &lt;path to blog subdir in Obsidian vault&gt; &lt;path to hugo-managed site&gt;/content/posts/ $ cd &lt;hugo-managed site&gt; $ hugo $ git add . $ git commit -m &#34;&lt;Commit Message&gt;&#34; $ git push $ git subtree split --prefix public -b public_site $ git push origin public_site:public_site --force $ git branch -D public_site 

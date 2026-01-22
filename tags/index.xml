@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Martin Lefebvre&#39;s blog</title>
-    <link>http://localhost:1313/blog/tags/</link>
+    <link>https://mlfbvr.github.io/blog/tags/</link>
     <description>Recent content in Tags on Martin Lefebvre&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 19 Jan 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://mlfbvr.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog</title>
-      <link>http://localhost:1313/blog/tags/blog/</link>
+      <link>https://mlfbvr.github.io/blog/tags/blog/</link>
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/tags/blog/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/blog/</guid>
       <description></description>
     </item>
     <item>
       <title>Design_patterns</title>
-      <link>http://localhost:1313/blog/tags/design_patterns/</link>
+      <link>https://mlfbvr.github.io/blog/tags/design_patterns/</link>
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/tags/design_patterns/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/design_patterns/</guid>
       <description></description>
     </item>
     <item>
       <title>Solid</title>
-      <link>http://localhost:1313/blog/tags/solid/</link>
+      <link>https://mlfbvr.github.io/blog/tags/solid/</link>
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/tags/solid/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/solid/</guid>
       <description></description>
     </item>
     <item>
       <title>Database</title>
-      <link>http://localhost:1313/blog/tags/database/</link>
+      <link>https://mlfbvr.github.io/blog/tags/database/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/tags/database/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/database/</guid>
       <description></description>
     </item>
     <item>
       <title>Javascript</title>
-      <link>http://localhost:1313/blog/tags/javascript/</link>
+      <link>https://mlfbvr.github.io/blog/tags/javascript/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/tags/javascript/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/javascript/</guid>
       <description></description>
     </item>
     <item>
       <title>Typestript</title>
-      <link>http://localhost:1313/blog/tags/typestript/</link>
+      <link>https://mlfbvr.github.io/blog/tags/typestript/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/tags/typestript/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/typestript/</guid>
       <description></description>
     </item>
     <item>
       <title>Career</title>
-      <link>http://localhost:1313/blog/tags/career/</link>
+      <link>https://mlfbvr.github.io/blog/tags/career/</link>
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/tags/career/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/career/</guid>
       <description></description>
     </item>
     <item>
       <title>Myself</title>
-      <link>http://localhost:1313/blog/tags/myself/</link>
+      <link>https://mlfbvr.github.io/blog/tags/myself/</link>
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/tags/myself/</guid>
+      <guid>https://mlfbvr.github.io/blog/tags/myself/</guid>
       <description></description>
     </item>
   </channel>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
-<head><script src="/blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=blog/livereload" data-no-instant defer></script>
+<head>
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <title>SOLID -- Single Responsibility Principle | Martin Lefebvre&#39;s blog</title>
 
-    <link rel="stylesheet" href="/blog/css/main.css">
+      <link rel="stylesheet" href="/blog/css/main.min.7280a742b1934e03c107f9e403a3579672846a60896f832b9d1347d1f3ac0e0e.css" integrity="sha256-coCnQrGTTgPBB/nkA6NXlnKEamCJb4MrnRNH0fOsDg4=" crossorigin="anonymous">
 
 
-      <script src="/blog/js/main.js"></script>
+      <script src="/blog/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js" integrity="sha256-I80MfYNyY7nq65buLZzPopadqj&#43;gD6HB/ocBqbhyUaE=" crossorigin="anonymous"></script>
 
 
 </head>
@@ -42,7 +42,7 @@
 
   <p>Ever since I started looking for work, something has become extremely clear &ndash; while I am familiar with the practical aspects of software design and development, a lot of the theoretical patterns are beyond fuzzy.</p>
 <p>To address this, I have gone back to studying some of the basic design patterns and principles, starting with SOLID, which came to light in the early 2000s.</p>
-<p><strong>Single Responsibility Principle</strong></p>
+<h2 id="single-responsibility-principle">Single Responsibility Principle</h2>
 <p>The first of these five software design principles is the &ldquo;Single Responsibility Principle&rdquo;. This principle stats that <em>an entity should have one and only one reason to change, meaning that a class should have only one job.</em></p>
 <p>Let&rsquo;s start with this Python example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>
@@ -90,6 +90,7 @@
 </span></span></code></pre></div><p>This is a basic example gives us what we need to properly understand the principle.</p>
 <p>At first glance, everything looks fine &ndash; an Employee is created and an email is sent upon creation to welcome them to the company. But under the <em>Single Responsibility Principle</em>, there is an issue: an Employee class should not be responsible for sending an email.</p>
 <p>As per the definition of the principle, the Employee class should be responsible only for handling employee operations and, more importantly, should only be changed for reasons related to employee operations. While welcoming the new employee to the company is considered part of these normal operations, sending an email is not.</p>
+<h2 id="a-better-way">A better way</h2>
 <p>A better implementation would move the email-sending logic to a dedicated entity that would be specifically built to handle that logic. This means that any changes to the email-sending logic would be done in the entity (the class) responsible for that sending the email message. The Employee class shouldn&rsquo;t be changed since none of the employee operations have changed.</p>
 <p>The implementation could look like this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>
@@ -140,7 +141,7 @@
 </span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#34;username or email already exists&#34;</span>) <span style="color:#f92672">from</span> e
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">finally</span>:
 </span></span><span style="display:flex;"><span>			conn<span style="color:#f92672">.</span>close()
-</span></span></code></pre></div><p>The result is a set of classes that are much more concise and cleaner. Developers looking to fix or update employee-related code will not have to deal with (and risk breaking) the email-related code and vice-versa.</p>
+</span></span></code></pre></div><p>The result is a set of classes that are much more concise and cleaner. Tests become easier to write. Developers looking to fix or update employee-related code will not have to deal with (and risk breaking) the email-related code and vice-versa.</p>
 <p>Stay tuned for more articles as I refresh my memory and go through the rest of SOLID and other design patterns and principles.</p>
 
   
