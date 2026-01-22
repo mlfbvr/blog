@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Typestript on Martin Lefebvre&#39;s blog</title>
-    <link>http://localhost:1313/blog/tags/typestript/</link>
+    <link>https://mlfbvr.github.io/blog/tags/typestript/</link>
     <description>Recent content in Typestript on Martin Lefebvre&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 15 Dec 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/blog/tags/typestript/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://mlfbvr.github.io/blog/tags/typestript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The Singleton</title>
-      <link>http://localhost:1313/blog/posts/the-singleton/</link>
+      <link>https://mlfbvr.github.io/blog/posts/the-singleton/</link>
       <pubDate>Mon, 15 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/posts/the-singleton/</guid>
+      <guid>https://mlfbvr.github.io/blog/posts/the-singleton/</guid>
       <description>Handling MySQL Connections in TypeScript: The Good, the Bad, and the “Too Many Connections” Error When building a TypeScript application that talks to MySQL, how you manage database connections matters more than it might initially appear. A seemingly harmless pattern can quietly work its way into production and, under load, bring your application down with the dreaded:&#xA;Error: Too many connections&#xA;In this post, we will look at a bad but common approach to handling MySQL connections, why it causes problems, and then contrast it with a simple, effective approach that leverages ES modules and the Singleton pattern—without classes.</description>
     </item>
   </channel>
