@@ -6,8 +6,15 @@
     <description>Recent content in Blog on Martin Lefebvre&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://mlfbvr.github.io/blog/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Development is dead... Long live software development!</title>
+      <link>https://mlfbvr.github.io/blog/posts/software-development-is-dead...-long-live-software-development/</link>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://mlfbvr.github.io/blog/posts/software-development-is-dead...-long-live-software-development/</guid>
+      <description>Software development is dead. We&amp;rsquo;ve all heard it. But is it true? My opinion is that it depends on how you define software development.&#xA;If for you software development means sitting down with Vim or Visual Studio Code and writing APIs from scratch with ExpressJS, then yes, it&amp;rsquo;s dead. AI can do that. Better? Unlikely, but just as good as you. Faster? Way faster than you.&#xA;Today, you tell an AI tool that you need an API to query and manage customer profiles.</description>
+    </item>
     <item>
       <title>SOLID -- Single Responsibility Principle</title>
       <link>https://mlfbvr.github.io/blog/posts/solid----single-responsibility-principle/</link>
