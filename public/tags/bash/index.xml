@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bash on Martin Lefebvre&#39;s blog</title>
+    <link>https://mlfbvr.github.io/blog/tags/bash/</link>
+    <description>Recent content in Bash on Martin Lefebvre&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Jan 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://mlfbvr.github.io/blog/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automating the blog deployment</title>
+      <link>https://mlfbvr.github.io/blog/posts/automating-the-blog-deployment/</link>
+      <pubDate>Thu, 22 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://mlfbvr.github.io/blog/posts/automating-the-blog-deployment/</guid>
+      <description>For the first few posts, the blog site was generated and sync&amp;rsquo;d manually through a series of commands. It&amp;rsquo;s time to change that.&#xA;We&amp;rsquo;ll create a small bash script that will take care of everything for us:</description>
+    </item>
+  </channel>
+</rss>
