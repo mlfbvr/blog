@@ -6,8 +6,15 @@
     <description>Recent content in Blog on Martin Lefebvre&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://mlfbvr.github.io/blog/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTMX: Simple AJAX</title>
+      <link>https://mlfbvr.github.io/blog/posts/htmx----simple-ajax/</link>
+      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://mlfbvr.github.io/blog/posts/htmx----simple-ajax/</guid>
+      <description>We all remember AJAX (Asynchronous JavaScript and XML). I&amp;rsquo;ve spent many hours and many days creating XMLHttpRequest objects and using jQuery&amp;rsquo;s .get and .post methods to connect HTML to a PHP backend to achieve that true &amp;ldquo;no full page load&amp;rdquo; magic. That&amp;rsquo;s still possible today&amp;hellip; It&amp;rsquo;s also even simpler with HTMX, a small library that makes HTML dynamic. At its most basic, HTMX queries endpoints and updates HTML elements with the returned content (usually text or HTML).</description>
+    </item>
     <item>
       <title>Software Development is dead... Long live software development!</title>
       <link>https://mlfbvr.github.io/blog/posts/software-development-is-dead...-long-live-software-development/</link>

@@ -1,7 +1,7 @@
 ---
 title: "HTMX: Simple AJAX"
 date: 2026-02-10
-draft: true
+draft: false
 tags:
   - blog
   - python
