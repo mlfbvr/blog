@@ -6,13 +6,27 @@
     <description>Recent content in Tags on Martin Lefebvre&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://mlfbvr.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog</title>
       <link>https://mlfbvr.github.io/blog/tags/blog/</link>
-      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
       <guid>https://mlfbvr.github.io/blog/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Learning</title>
+      <link>https://mlfbvr.github.io/blog/tags/learning/</link>
+      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://mlfbvr.github.io/blog/tags/learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://mlfbvr.github.io/blog/tags/python/</link>
+      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://mlfbvr.github.io/blog/tags/python/</guid>
       <description></description>
     </item>
     <item>

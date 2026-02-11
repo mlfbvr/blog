@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>HTMX: Simple AJAX | Martin Lefebvre&#39;s blog</title>
+
+      <link rel="stylesheet" href="/blog/css/main.min.7280a742b1934e03c107f9e403a3579672846a60896f832b9d1347d1f3ac0e0e.css" integrity="sha256-coCnQrGTTgPBB/nkA6NXlnKEamCJb4MrnRNH0fOsDg4=" crossorigin="anonymous">
+
+
+      <script src="/blog/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js" integrity="sha256-I80MfYNyY7nq65buLZzPopadqj&#43;gD6HB/ocBqbhyUaE=" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+  <header>
+    <h1>Martin Lefebvre&#39;s blog</h1>
+
+  <nav>
+    <ul>
+    <li>
+      <a href="/blog/">Home</a>
+    </li>
+    <li>
+      <a aria-current="true" class="ancestor" href="/blog/posts/">Posts</a>
+    </li>
+    <li>
+      <a href="/blog/tags/">Tags</a>
+    </li>
+    </ul>
+  </nav>
+
+
+  </header>
+  <main>
+    
+  <h1>HTMX: Simple AJAX</h1>
+
+  
+  
+  <time datetime="2026-02-10T00:00:00&#43;00:00">February 10, 2026</time>
+
+  <p>We all remember AJAX (Asynchronous JavaScript and XML). I&rsquo;ve spent many hours and many days creating XMLHttpRequest objects and using jQuery&rsquo;s .get and .post methods to connect HTML to a PHP backend to achieve that true &ldquo;no full page load&rdquo; magic. That&rsquo;s still possible today&hellip; It&rsquo;s also even simpler with <a href="https://htmx.org">HTMX</a>, a small library that makes HTML dynamic. At its most basic, HTMX queries endpoints and updates HTML elements with the returned content (usually text or HTML). It supports GET and POST, but also PUT, DELETE, etc.</p>
+<p>We will be building a small web service with a dynamic front-end powered by FastAPI and HTMX. Comments have been removed to keep it short, but the full version is available <a href="https://github.com/mlfbvr/fastapi-htmx-project">here</a></p>
+<p><em>Important note: This is a project for me to learn FastAPI and HTMX. Do not use this in production <strong>as-is</strong>. I cannot stress this enough.</em></p>
+<h3 id="starting-up">Starting up</h3>
+<p><em>This article assumes a certain familiarity with HTML and  Python and that python is installed</em></p>
+<p>To start, we will create the basis of the project by running these commands.
+We are using a python virtual env located in .venv, but it can be located anywhere.
+We also activate the virtual env, install fastapi with a standard set of dependencies and create our <code>templates</code> directory</p>
+<pre tabindex="0"><code>$ mkdir ~/fastapi_htmx
+$ cd ~/fastapi_htmx
+$ python3 -m venv .venv
+$ source ~/fastapi_htmx/.venv/bin/activate
+$ pip install &#34;fastapi[standard]&#34;
+$ mkdir templates
+</code></pre><p>Now that the directories and virtual environment are ready, let&rsquo;s open up our editor and create the basic files:
+<code>main.py</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi <span style="color:#f92672">import</span> FastAPI, Request
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi.templating <span style="color:#f92672">import</span> Jinja2Templates
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>app <span style="color:#f92672">=</span> FastAPI()
+</span></span><span style="display:flex;"><span>templates <span style="color:#f92672">=</span> Jinja2Templates(directory<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;templates&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.get</span>(<span style="color:#e6db74">&#34;/&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">read_root</span>(request: Request):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> templates<span style="color:#f92672">.</span>TemplateResponse(<span style="color:#e6db74">&#34;index.html&#34;</span>, {<span style="color:#e6db74">&#34;request&#34;</span>: request})
+</span></span></code></pre></div><p>We start by importing <code>FastAPI</code> and <code>Request</code> from <code>fastapi</code>, as well as <code>Jinja2Templates</code> from <code>fastapi.templating</code>, which will be used to render our templates. We also define the FastAPI <code>app</code> and the <code>templates</code> template repository</p>
+<p>Our first <code>GET</code> route will return the rendered Jinja2 template <code>templates/index.html</code></p>
+<p><code>templates/index.html</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;FastAPI + HTMX!!!&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;<span style="color:#f92672">h1</span>&gt;FastAPI + HTMX!!!&lt;/<span style="color:#f92672">h1</span>&gt; 
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>Once the template is created, we can start the fastapi server and view the results so far.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ fastapi dev
+</span></span></code></pre></div><p>Open <code>http://127.0.0.1:8000</code> in your browser to see our page with a big &ldquo;FastAPI + HTMX!!!&rdquo;</p>
+<h3 id="next-step">Next Step</h3>
+<p>At its most basic, HTMX works by retrieving data, whether in HTML or text, and swapping it with pre-existing HTML elements. For example, we can create a simple route in our backend that will, for this example, simulate a call to some external weather API and return a snippet of HTML with the conditions and the temperature.</p>
+<p>To prepare, let&rsquo;s make the following changes to our <code>home</code> HTML template:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">html</span> <span style="color:#a6e22e">lang</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;en&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">charset</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UTF-8&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">meta</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;viewport&#34;</span> <span style="color:#a6e22e">content</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;width=device-width, initial-scale=1.0&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">title</span>&gt;FastAPI + HTMX!!!&lt;/<span style="color:#f92672">title</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">head</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;<span style="color:#f92672">h1</span>&gt;FastAPI + HTMX!!!&lt;/<span style="color:#f92672">h1</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;<span style="color:#f92672">h2</span>&gt;Current Weather Conditions&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;loading&#34;</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;htmx-indicator&#34;</span>&gt;Loading...&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;weather&#34;</span> <span style="color:#a6e22e">hx-get</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/weather&#34;</span> <span style="color:#a6e22e">hx-indicator</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#loading&#34;</span> <span style="color:#a6e22e">hx-trigger</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;load, every 5s&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">html</span>&gt;
+</span></span></code></pre></div><p>We added the following elements:</p>
+<ul>
+<li>a <code>&lt;script&gt;</code> tag that loads htmx version 2.0.8 from jsdeliver.net</li>
+<li>a <code>&lt;h2&gt;</code> header for the header conditions section</li>
+<li>a <code>&lt;p&gt;</code> element that will be our loading indicator (note that the class <code>htmx-indicator</code> is mandatory)</li>
+<li>a <code>&lt;div&gt;</code> that will contain the HTML returned by our API call (the weather information), with the following attributes:
+<ul>
+<li><code>hx-get=&quot;/weather&quot;</code> performs a <code>GET</code> request on the <code>/weather</code> endpoint</li>
+<li><code>hx-indicator=&quot;#loading&quot;</code> identifies our loading indicator, the <code>&lt;p&gt;</code> with the id of <code>loading</code></li>
+<li><code>hx-trigger=&quot;load, every 5s&quot;</code> defines the trigger for the query. In this case we want it triggered when the element originally loads, then every 5 seconds.</li>
+</ul>
+</li>
+</ul>
+<p>Next thing we need to do is to create the template that will be rendered</p>
+<p><code>templates/weather.html</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;Temperature: {{ weather.temperature }}°C&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">p</span>&gt;Conditions: {{ weather.conditions }}&lt;/<span style="color:#f92672">p</span>&gt;
+</span></span></code></pre></div><p>Since we only have a few templates, we can store them all together. For a more complicated site, these small templates can be stored in a sub-directory like <code>templates/partials</code> or <code>templates/snippets</code></p>
+<p>We also need to define our route to get the weather data from. To do that, we&rsquo;ll modify our FastAPI app and add the following code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.get</span>(<span style="color:#e6db74">&#34;/weather/&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">read_weather</span>(request: Request):
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> time <span style="color:#f92672">import</span> sleep
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> randint
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    sleep(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>    weather_data <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;temperature&#34;</span>: randint(<span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">30</span>), <span style="color:#e6db74">&#34;conditions&#34;</span>: <span style="color:#e6db74">&#34;Sunny&#34;</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> templates<span style="color:#f92672">.</span>TemplateResponse(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;weather.html&#34;</span>, {<span style="color:#e6db74">&#34;request&#34;</span>: request, <span style="color:#e6db74">&#34;weather&#34;</span>: weather_data}
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><p>This route will receive the <code>GET</code> request, sleep for 1 second to simulate fetching the data from an external API, and return the simulated data with a temperature between 15 and 30 degrees and sunny conditions.</p>
+<p>Back in our web browser, we should now see our &ldquo;Current Weather Conditions&rdquo; header, a random temperature that gets updated every 5 seconds, &ldquo;Conditions: Sunny&rdquo;. You&rsquo;ll also see &ldquo;Loading&hellip;&rdquo; appear every 5 seconds and go away after 1 second.</p>
+<h3 id="completing-the-app">Completing the app</h3>
+<p>The next thing we need to know so we can begin really working with both FastAPI and HTMX is how to handle <code>POST</code> requests.</p>
+<p>For this, we will need a form so let&rsquo;s implement a basic guest book that visitors to our app can sign. It will have one field, name, which is required.</p>
+<p>Edit the <code>templates/index.html</code> file and add the following code to the bottom of the <code>&lt;body&gt;</code> tag:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>   &lt;<span style="color:#f92672">h2</span>&gt;Guest Book&lt;/<span style="color:#f92672">h2</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;guestbook&#34;</span>&gt;No guests yet.&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;<span style="color:#f92672">form</span> <span style="color:#a6e22e">hx-post</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/sign&#34;</span> <span style="color:#a6e22e">hx-target</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;#guestbook&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>       &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;name&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Your name&#34;</span> <span style="color:#a6e22e">required</span>&gt;
+</span></span><span style="display:flex;"><span>       &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;submit&#34;</span>&gt;Sign Guest Book&lt;/<span style="color:#f92672">button</span>&gt;
+</span></span><span style="display:flex;"><span>   &lt;/<span style="color:#f92672">form</span>&gt;
+</span></span></code></pre></div><p>This gives us a header, list of guests who have signed and a form for new guests to sign.</p>
+<p>A few things to note:</p>
+<ul>
+<li>&ldquo;No guests yet.&rdquo; is the default content for the <code>guestbook</code> div, meaning it will be displayed until someone signs our guest book</li>
+<li>The form uses different HTMX attributes:
+<ul>
+<li><code>hx-post=&quot;/sign&quot;</code> defines the action of the form as a <code>POST</code> to the <code>/sign</code> endpoint</li>
+<li><code>hx-target=&quot;#guestbook&quot;</code> indicates the target where the contents will be swapped. In the previous example, <code>hx-target</code> was omitted, which made the action of retrieving the weather target the current element by default.</li>
+</ul>
+</li>
+</ul>
+<p>The route to sign the guestbook is pretty simple:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>signatures <span style="color:#f92672">=</span> [] <span style="color:#75715e"># Simulates a persistent storage for signatures</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Use Pydantic to define a model for the form data</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FormData</span>(BaseModel):
+</span></span><span style="display:flex;"><span>    name: str
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@app.post</span>(<span style="color:#e6db74">&#34;/sign&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sign</span>(request: Request, form_data: FormData <span style="color:#f92672">=</span> Form(<span style="color:#f92672">...</span>)):
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">from</span> datetime <span style="color:#f92672">import</span> datetime
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    signature <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#34;name&#34;</span>: form_data<span style="color:#f92672">.</span>name, <span style="color:#e6db74">&#34;timestamp&#34;</span>: datetime<span style="color:#f92672">.</span>now()}
+</span></span><span style="display:flex;"><span>    found <span style="color:#f92672">=</span> list(filter((<span style="color:#66d9ef">lambda</span> s: s[<span style="color:#e6db74">&#34;name&#34;</span>] <span style="color:#f92672">==</span> form_data<span style="color:#f92672">.</span>name), signatures))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> found:
+</span></span><span style="display:flex;"><span>        signatures<span style="color:#f92672">.</span>append(signature)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> templates<span style="color:#f92672">.</span>TemplateResponse(
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;signatures.html&#34;</span>, {<span style="color:#e6db74">&#34;request&#34;</span>: request, <span style="color:#e6db74">&#34;signatures&#34;</span>: signatures}
+</span></span><span style="display:flex;"><span>    )
+</span></span></code></pre></div><p>We also need to import <code>Form</code> from <code>fastapi</code> by editing the first line of our application:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> fastapi <span style="color:#f92672">import</span> FastAPI, Request, Form
+</span></span></code></pre></div><p>The <code>signatures</code> list will act as our persistent storage and store the signatures.</p>
+<p>The data submitted from the form is parsed and turned into our <code>form_data</code>. It&rsquo;s also automatically validated through the use of a Pydantic model.</p>
+<p>Once the data is received, we create a <code>signature</code> dict with the name of the guest and a timestamp. We also validate that the guest has not signed the guestbook, using filter and a lambda function, before adding it to our <code>signatures</code> list.</p>
+<p>The route then returns the parsed signatures template with the <code>signatures</code> list as its context, which HTMX then uses to re-render the guestbook signature list on our page</p>
+<p><code>templates/signatures.html</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">ul</span>&gt;
+</span></span><span style="display:flex;"><span>{% for signature in signatures %}
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">li</span>&gt;{{ signature.name }} signed at {{ signature.timestamp }}&lt;/<span style="color:#f92672">li</span>&gt;
+</span></span><span style="display:flex;"><span>{% endfor %}
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">ul</span>&gt;
+</span></span></code></pre></div><h3 id="conclusion">Conclusion</h3>
+<p>As mentioned at the beginning, this is not a production-ready end-to-end application. A lot of things are missing, like proper error validation and other optimisations. But it still demonstrates the basic functionality of HTMX and also gives a short demonstration of what FastAPI can do.</p>
+<p>For more information, I recommend the documentation of both projects, available at the links below:</p>
+<ul>
+<li><a href="https://fastapi.tiangolo.com/learn/">https://fastapi.tiangolo.com/learn/</a></li>
+<li><a href="https://htmx.org/docs/">https://htmx.org/docs/</a></li>
+</ul>
+
+  
+  <div>
+    <div>Tags:</div>
+    <ul>
+        <li><a href="/blog/tags/blog/">Blog</a></li>
+        <li><a href="/blog/tags/python/">Python</a></li>
+        <li><a href="/blog/tags/learning/">Learning</a></li>
+    </ul>
+  </div>
+
+
+  </main>
+  <footer>
+    <p>Copyright 2026. All rights reserved.</p>
+
+  </footer>
+</body>
+</html>
