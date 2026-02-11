@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://mlfbvr.github.io/blog/tags/blog/</loc>
-    <lastmod>2026-02-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://mlfbvr.github.io/blog/posts/</loc>
+    <lastmod>2026-02-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://mlfbvr.github.io/blog/tags/blog/</loc>
     <lastmod>2026-02-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://mlfbvr.github.io/blog/posts/software-development-is-dead...-long-live-software-development/</loc>
