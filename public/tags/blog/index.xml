@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Martin Lefebvre&#39;s blog</title>
-    <link>https://mlfbvr.github.io/blog/tags/blog/</link>
+    <link>http://localhost:1313/blog/tags/blog/</link>
     <description>Recent content in Blog on Martin Lefebvre&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 10 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://mlfbvr.github.io/blog/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HTMX: Simple AJAX</title>
-      <link>https://mlfbvr.github.io/blog/posts/htmx----simple-ajax/</link>
+      <link>http://localhost:1313/blog/posts/htmx----simple-ajax/</link>
       <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://mlfbvr.github.io/blog/posts/htmx----simple-ajax/</guid>
+      <guid>http://localhost:1313/blog/posts/htmx----simple-ajax/</guid>
       <description>We all remember AJAX (Asynchronous JavaScript and XML). I&amp;rsquo;ve spent many hours and many days creating XMLHttpRequest objects and using jQuery&amp;rsquo;s .get and .post methods to connect HTML to a PHP backend to achieve that true &amp;ldquo;no full page load&amp;rdquo; magic. That&amp;rsquo;s still possible today&amp;hellip; It&amp;rsquo;s also even simpler with HTMX, a small library that makes HTML dynamic. At its most basic, HTMX queries endpoints and updates HTML elements with the returned content (usually text or HTML).</description>
     </item>
     <item>
       <title>Software Development is dead... Long live software development!</title>
-      <link>https://mlfbvr.github.io/blog/posts/software-development-is-dead...-long-live-software-development/</link>
+      <link>http://localhost:1313/blog/posts/software-development-is-dead...-long-live-software-development/</link>
       <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://mlfbvr.github.io/blog/posts/software-development-is-dead...-long-live-software-development/</guid>
+      <guid>http://localhost:1313/blog/posts/software-development-is-dead...-long-live-software-development/</guid>
       <description>Software development is dead. We&amp;rsquo;ve all heard it. But is it true? My opinion is that it depends on how you define software development.&#xA;If for you software development means sitting down with Vim or Visual Studio Code and writing APIs from scratch with ExpressJS, then yes, it&amp;rsquo;s dead. AI can do that. Better? Unlikely, but just as good as you. Faster? Way faster than you.&#xA;Today, you tell an AI tool that you need an API to query and manage customer profiles.</description>
     </item>
     <item>
       <title>SOLID -- Single Responsibility Principle</title>
-      <link>https://mlfbvr.github.io/blog/posts/solid----single-responsibility-principle/</link>
+      <link>http://localhost:1313/blog/posts/solid----single-responsibility-principle/</link>
       <pubDate>Mon, 19 Jan 2026 00:00:00 +0000</pubDate>
-      <guid>https://mlfbvr.github.io/blog/posts/solid----single-responsibility-principle/</guid>
+      <guid>http://localhost:1313/blog/posts/solid----single-responsibility-principle/</guid>
       <description>Ever since I started looking for work, something has become extremely clear &amp;ndash; while I am familiar with the practical aspects of software design and development, a lot of the theoretical patterns are beyond fuzzy.&#xA;To address this, I have gone back to studying some of the basic design patterns and principles, starting with SOLID, which came to light in the early 2000s.&#xA;Single Responsibility Principle The first of these five software design principles is the &amp;ldquo;Single Responsibility Principle&amp;rdquo;.</description>
     </item>
     <item>
       <title>How to publish my Obsidian-based blog</title>
-      <link>https://mlfbvr.github.io/blog/posts/how-to-publish-my-obsidian-based-blog/</link>
+      <link>http://localhost:1313/blog/posts/how-to-publish-my-obsidian-based-blog/</link>
       <pubDate>Tue, 16 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://mlfbvr.github.io/blog/posts/how-to-publish-my-obsidian-based-blog/</guid>
+      <guid>http://localhost:1313/blog/posts/how-to-publish-my-obsidian-based-blog/</guid>
       <description>$ rsync -a --delete --info=NAME &amp;lt;path to blog subdir in Obsidian vault&amp;gt; &amp;lt;path to hugo-managed site&amp;gt;/content/posts/ $ cd &amp;lt;hugo-managed site&amp;gt; $ hugo $ git add . $ git commit -m &amp;#34;&amp;lt;Commit Message&amp;gt;&amp;#34; $ git push $ git subtree split --prefix public -b public_site $ git push origin public_site:public_site --force $ git branch -D public_site </description>
     </item>
     <item>
       <title>From Dial-Up to Docker... A Developer&#39;s Journey</title>
-      <link>https://mlfbvr.github.io/blog/posts/first-post/</link>
+      <link>http://localhost:1313/blog/posts/first-post/</link>
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
-      <guid>https://mlfbvr.github.io/blog/posts/first-post/</guid>
+      <guid>http://localhost:1313/blog/posts/first-post/</guid>
       <description>Hello and welcome to my personal blog! My name is Martin Lefebvre, and I&amp;rsquo;m a full-stack software developer with a passion for technology that has spanned over two decades. With 20 years in software development and 30 years of experience with Linux, I&amp;rsquo;ve had a front-row seat to the incredible evolution of our industry. This blog is where I&amp;rsquo;ll be sharing my insights, experiences, and thoughts on the ever-changing world of tech.</description>
     </item>
   </channel>

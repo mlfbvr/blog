@@ -6,8 +6,15 @@
     <description>Recent content in Home on Martin Lefebvre&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://mlfbvr.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Git Commit Messages -- Letting AI write the boring parts</title>
+      <link>https://mlfbvr.github.io/blog/posts/git-commit-messages----letting-ai-write-the-boring-parts/</link>
+      <pubDate>Thu, 25 Jun 2026 00:00:00 +0000</pubDate>
+      <guid>https://mlfbvr.github.io/blog/posts/git-commit-messages----letting-ai-write-the-boring-parts/</guid>
+      <description>We all know the ritual. You finish a batch of changes, run git add, type git commit, and then&amp;hellip; you stare at the blank terminal. Fifty characters to summarise hours of work. Then a longer description that nobody will read. If you follow conventional commits, there&amp;rsquo;s the added overhead of picking the right type prefix: feat:, fix:, docs:, refactor:, etc.&#xA;Let&amp;rsquo;s be honest. Most of the time I just write &amp;ldquo;fix stuff&amp;rdquo; and hit enter.</description>
+    </item>
     <item>
       <title>HTMX: Simple AJAX</title>
       <link>https://mlfbvr.github.io/blog/posts/htmx----simple-ajax/</link>
@@ -49,6 +56,20 @@
       <pubDate>Sun, 14 Dec 2025 00:00:00 +0000</pubDate>
       <guid>https://mlfbvr.github.io/blog/posts/first-post/</guid>
       <description>Hello and welcome to my personal blog! My name is Martin Lefebvre, and I&amp;rsquo;m a full-stack software developer with a passion for technology that has spanned over two decades. With 20 years in software development and 30 years of experience with Linux, I&amp;rsquo;ve had a front-row seat to the incredible evolution of our industry. This blog is where I&amp;rsquo;ll be sharing my insights, experiences, and thoughts on the ever-changing world of tech.</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://mlfbvr.github.io/blog/posts/dependency-injection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mlfbvr.github.io/blog/posts/dependency-injection/</guid>
+      <description>Dependencies What an entity depends on to perform it&amp;rsquo;s tasks.&#xA;Example: A bus carries students to and from school. Each student is assigned a seat on a dedicated bus route.&#xA;Each student depends on the bus to get to and from school. So the bus is a dependency of the student.&#xA;The bus doesn&amp;rsquo;t need the students to do its thing (drive around)&#xA;Without dependency injection, two scenarios are possible:</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://mlfbvr.github.io/blog/posts/tasks/todo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://mlfbvr.github.io/blog/posts/tasks/todo/</guid>
+      <description>Blog Writing Agent — Implementation Goal Create an opencode skill at ~/.config/opencode/skills/blog-writer/SKILL.md that produces blog posts indistinguishable from Martin&amp;rsquo;s writing style.&#xA;Steps Plan approved by user Create ~/.config/opencode/skills/blog-writer/SKILL.md — main skill definition Skill metadata (name, description, trigger conditions) Author persona section (full style guide distilled from 10 posts) Iterative workflow instructions (outline → draft, 2-pass) Front matter generation rules Tag inference rules Quality checklist for self-review before presenting Verify the skill is discoverable by opencode Test with a sample topic Review After implementation, the skill should be loadable via skill tool and produce posts matching the analyzed voice, structure, and habits.</description>
     </item>
   </channel>
 </rss>
