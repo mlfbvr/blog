@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Git Commit Messages -- Letting AI write the boring parts | Martin Lefebvre&#39;s blog</title>
+
+
+      <link rel="stylesheet" href="/blog/css/main.min.7280a742b1934e03c107f9e403a3579672846a60896f832b9d1347d1f3ac0e0e.css" integrity="sha256-coCnQrGTTgPBB/nkA6NXlnKEamCJb4MrnRNH0fOsDg4=" crossorigin="anonymous">
+
+
+      <script src="/blog/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js" integrity="sha256-I80MfYNyY7nq65buLZzPopadqj&#43;gD6HB/ocBqbhyUaE=" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+  <header>
+    <h1>Martin Lefebvre&#39;s blog</h1>
+
+  <nav>
+    <ul>
+    <li>
+      <a href="/blog/">Home</a>
+    </li>
+    <li>
+      <a aria-current="true" class="ancestor" href="/blog/posts/">Posts</a>
+    </li>
+    <li>
+      <a href="/blog/tags/">Tags</a>
+    </li>
+    </ul>
+  </nav>
+
+
+  </header>
+  <main>
+    
+  <h1>Git Commit Messages -- Letting AI write the boring parts</h1>
+
+  
+  
+  <time datetime="2026-06-25T00:00:00&#43;00:00">June 25, 2026</time>
+
+  <p>We all know the ritual. You finish a batch of changes, run <code>git add</code>, type <code>git commit</code>, and then&hellip; you stare at the blank terminal. Fifty characters to summarise hours of work. Then a longer description that nobody will read. If you follow conventional commits, there&rsquo;s the added overhead of picking the right type prefix: <code>feat:</code>, <code>fix:</code>, <code>docs:</code>, <code>refactor:</code>, etc.</p>
+<p>Let&rsquo;s be honest. Most of the time I just write &ldquo;fix stuff&rdquo; and hit enter. Then I feel guilty about it later.</p>
+<p><strong>The problem is friction.</strong> I know good commit hygiene matters — clean history, semantic versioning, changelogs. But after a long coding session, switching from &ldquo;building mode&rdquo; to &ldquo;writing mode&rdquo; feels like a tax I don&rsquo;t want to pay. The result? Sloppy messages, or worse, one giant &ldquo;wip&rdquo; commit that gets squashed later.</p>
+<p>That&rsquo;s where this small skill comes in.</p>
+<p>I use <a href="https://opencode.ai">opencode</a>, an AI coding assistant that runs in the terminal. It has a skill system where you can drop a <code>SKILL.md</code> file into a directory and teach it a new capability. I wrote one for commits, and it lives <a href="https://github.com/mlfbvr/dotfiles/tree/main/opencode/.config/opencode/skills/git-commit">here</a>.</p>
+<p>Here&rsquo;s what it does:</p>
+<blockquote>
+<p>It analyses staged changes, determines the commit type (feat, fix, docs, refactor, test, chore, dep, or update), writes a concise &lt;50 character message and longer description following the conventional commit format, then presents it to me for review before committing.</p>
+</blockquote>
+<p>The workflow is dead simple:</p>
+<ol>
+<li>Stage your changes</li>
+<li>Tell opencode &ldquo;commit this&rdquo;</li>
+<li>It reads the diff, classifies the change, and proposes a message</li>
+<li>I glance at it, edit if needed, approve — done</li>
+</ol>
+<p>The magic is that <em>I still make the final call</em>. The skill doesn&rsquo;t force a commit; it presents the message for review. This means I stay in control while offloading the tedious part.</p>
+<p><strong>Why this changed things for me:</strong></p>
+<ul>
+<li><strong>Conventional commits, enforced.</strong> Every message gets the right prefix. No more &ldquo;fix typo&rdquo; when it should be <code>docs: fix typo in README</code>.</li>
+<li><strong>No context switch.</strong> I stay in flow. The AI analyses the diff while I&rsquo;m still thinking about the code.</li>
+<li><strong>Consistency across the repo.</strong> Every message follows the same pattern, which makes <code>git log</code> a pleasure to read.</li>
+</ul>
+<p>It&rsquo;s a small thing. But removing that tiny friction from the daily workflow adds up. &ldquo;git commit&rdquo; went from a chore I&rsquo;d procrastinate into a single command I trust.</p>
+<p>If you use opencode, drop the skill into your config and give it a try. If you use another AI tool, chances are it has a similar system — this pattern generalises beyond any single tool.</p>
+
+  
+  <div>
+    <div>Tags:</div>
+    <ul>
+        <li><a href="/blog/tags/blog/">Blog</a></li>
+        <li><a href="/blog/tags/bash/">Bash</a></li>
+        <li><a href="/blog/tags/learning/">Learning</a></li>
+    </ul>
+  </div>
+
+
+  </main>
+  <footer>
+    <p>Copyright 2026. All rights reserved.</p>
+
+  </footer>
+</body>
+</html>

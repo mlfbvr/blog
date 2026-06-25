@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title> | Martin Lefebvre&#39;s blog</title>
+
+
+      <link rel="stylesheet" href="/blog/css/main.min.7280a742b1934e03c107f9e403a3579672846a60896f832b9d1347d1f3ac0e0e.css" integrity="sha256-coCnQrGTTgPBB/nkA6NXlnKEamCJb4MrnRNH0fOsDg4=" crossorigin="anonymous">
+
+
+      <script src="/blog/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js" integrity="sha256-I80MfYNyY7nq65buLZzPopadqj&#43;gD6HB/ocBqbhyUaE=" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+  <header>
+    <h1>Martin Lefebvre&#39;s blog</h1>
+
+  <nav>
+    <ul>
+    <li>
+      <a href="/blog/">Home</a>
+    </li>
+    <li>
+      <a aria-current="true" class="ancestor" href="/blog/posts/">Posts</a>
+    </li>
+    <li>
+      <a href="/blog/tags/">Tags</a>
+    </li>
+    </ul>
+  </nav>
+
+
+  </header>
+  <main>
+    
+  <h1></h1>
+
+  
+  
+  <time datetime="0001-01-01T00:00:00&#43;00:00">January 1, 1</time>
+
+  <h2 id="dependencies">Dependencies</h2>
+<p>What an entity depends on to perform it&rsquo;s tasks.</p>
+<p>Example:
+A bus carries students to and from school. Each student is assigned a seat on a dedicated bus route.</p>
+<p>Each student depends on the bus to get to and from school. So the bus is a dependency of the student.</p>
+<p>The bus doesn&rsquo;t need the students to do its thing (drive around)</p>
+<p>Without dependency injection, two scenarios are possible:</p>
+<ol>
+<li>The bus has to keep track of each student that boards (creating a new entity for each student). This is complicated and beyond the responsibility of a bus.</li>
+<li>Each student depends has his/her own bus with its own driver. Not efficient (high resource cost).</li>
+</ol>
+<h2 id="injection">Injection</h2>
+<p>With dependency injection, a single bus can be instantiated for a specific route and &ldquo;provided&rdquo; to the students. Each student that needs a bus to get to/from school has the responsibility to board the bus that has been provided to them.</p>
+<h3 id="constructor-dependency-injection">Constructor Dependency Injection</h3>
+<p>Example with constructor dependency injection:</p>
+<pre tabindex="0"><code>class Bus:
+	def __init__(self, bus_route, capacity = 30):
+		self.bus_route = bus_route
+		self.capacity = capacity
+		self.passengers = []
+
+	def board(self, passenger_name):
+		if len(self.passengers) &lt; self.capacity:
+			self.passengers.append(passenger_name)
+			return f&#34;{passenger_name} has boarded the bus.&#34;
+		else:
+			return &#34;Bus is full. Cannot board more passengers.&#34;
+
+	def leave(self, passenger_name):
+		if passenger_name in self.passengers:
+			self.passengers.remove(passenger_name)
+			return f&#34;{passenger_name} has left the bus.&#34;
+		else:
+			return f&#34;{passenger_name} is not on the bus.&#34;
+
+def get_passenger_list(self):
+	return self.passengers
+	
+
+class Student:
+    def __init__(self, name, age, student_id, bus):
+        self.name = name
+        self.age = age
+        self.student_id = student_id
+        self.bus = bus
+
+    def get_details(self):
+        return f&#34;Name: {self.name}, Age: {self.age}, Student ID: {self.student_id} is assigned to bus route: {self.bus.bus_route}&#34;
+    
+    def board_bus(self):
+        return self.bus.board(self.name)
+
+    def leave_bus(self):
+        return self.bus.leave(self.name)
+
+
+if __name__ == &#34;__main__&#34;:       
+	bus_22 = bus.Bus(&#34;22B&#34;, capacity=40)
+	
+	student_1 = student.Student(&#34;Alice&#34;, 14, &#34;S12345&#34;, bus_22)
+	student_2 = student.Student(&#34;Bob&#34;, 15, &#34;S67890&#34;, bus_22)
+	student_3 = student.Student(&#34;Charlie&#34;, 13, &#34;S54321&#34;, bus_22)
+
+	student_1.board_bus()
+	student_2.board_bus()
+	student_3.board_bus()
+	
+	print(bus_22.get_passenger_list())
+</code></pre><p>In this example, all the students assigned to route 22B have the same bus instance as their dependency. They all board the same bus.</p>
+<h3 id="setter-dependency-injection">Setter Dependency Injection</h3>
+<p>Unlike the constructor dependency injection, where the dependency is provided when the object/entity is created, the setter dependency injection uses a specific setter method to assign each student to a bus. The logic of boarding the bus remains unchanged.</p>
+<pre tabindex="0"><code>class Bus:
+	def __init__(self, bus_route, capacity = 30):
+		self.bus_route = bus_route
+		self.capacity = capacity
+		self.passengers = []
+
+	def board(self, passenger_name):
+		if len(self.passengers) &lt; self.capacity:
+			self.passengers.append(passenger_name)
+			return f&#34;{passenger_name} has boarded the bus.&#34;
+		else:
+			return &#34;Bus is full. Cannot board more passengers.&#34;
+
+	def leave(self, passenger_name):
+		if passenger_name in self.passengers:
+			self.passengers.remove(passenger_name)
+			return f&#34;{passenger_name} has left the bus.&#34;
+		else:
+			return f&#34;{passenger_name} is not on the bus.&#34;
+
+	def get_passenger_list(self):
+		return self.passengers
+
+
+class Student:
+    def __init__(self, name, age, student_id):
+        self.name = name
+        self.age = age
+        self.student_id = student_id
+
+    def get_details(self):
+        return f&#34;Name: {self.name}, Age: {self.age}, Student ID: {self.student_id} is assigned to bus route: {self.bus.bus_route}&#34;
+
+    def set_bus(self, bus):
+	    self.bus = bus
+
+    def board_bus(self):
+        return self.bus.board(self.name)
+
+    def leave_bus(self):
+        return self.bus.leave(self.name)
+
+
+if __name__ == &#34;__main__&#34;:       
+	bus_22 = bus.Bus(&#34;22B&#34;, capacity=40)
+	
+	student_1 = student.Student(&#34;Alice&#34;, 14, &#34;S12345&#34;)
+	student_2 = student.Student(&#34;Bob&#34;, 15, &#34;S67890&#34;)
+	student_3 = student.Student(&#34;Charlie&#34;, 13, &#34;S54321&#34;)
+	
+	student_1.set_bus(bus_22)
+	student_2.set_bus(bus_22)
+	student_3.set_bus(bus_22)
+	
+	student_1.board_bus()
+	student_2.board_bus()
+	student_3.board_bus()
+	
+	print(bus_22.get_passenger_list())
+</code></pre><h3 id="method-dependency-injection">Method Dependency Injection</h3>
+<p>Using method dependency injection, the injection is provided as an argument to the method that needs it:</p>
+<pre tabindex="0"><code>class Bus:
+	def __init__(self, bus_route, capacity = 30):
+		self.bus_route = bus_route
+		self.capacity = capacity
+		self.passengers = []
+
+	def board(self, passenger_name):
+		if len(self.passengers) &lt; self.capacity:
+			self.passengers.append(passenger_name)
+			return f&#34;{passenger_name} has boarded the bus.&#34;
+		else:
+			return &#34;Bus is full. Cannot board more passengers.&#34;
+
+	def leave(self, passenger_name):
+		if passenger_name in self.passengers:
+			self.passengers.remove(passenger_name)
+			return f&#34;{passenger_name} has left the bus.&#34;
+		else:
+			return f&#34;{passenger_name} is not on the bus.&#34;
+
+def get_passenger_list(self):
+	return self.passengers
+	
+
+class Student:
+    def __init__(self, name, age, student_id):
+        self.name = name
+        self.age = age
+        self.student_id = student_id
+
+    def get_details(self):
+        return f&#34;Name: {self.name}, Age: {self.age}, Student ID: {self.student_id} is assigned to bus route: {self.bus.bus_route}&#34;
+    
+    def board_bus(self, bus):
+        return bus.board(self.name)
+
+    def leave_bus(self, bus):
+        return bus.leave(self.name)
+
+
+if __name__ == &#34;__main__&#34;:       
+	bus_22 = bus.Bus(&#34;22B&#34;, capacity=40)
+	
+	student_1 = student.Student(&#34;Alice&#34;, 14, &#34;S12345&#34;)
+	student_2 = student.Student(&#34;Bob&#34;, 15, &#34;S67890&#34;)
+	student_3 = student.Student(&#34;Charlie&#34;, 13, &#34;S54321&#34;)
+
+	student_1.board_bus(bus_22)
+	student_2.board_bus(bus_22)
+	student_3.board_bus(bus_22)
+	print(bus_22.get_passenger_list())
+
+	student_3.board_bus(bus_22)
+	student_1.board_bus(bus_22)
+	student_2.board_bus(bus_22)
+	print(bus_22.get_passenger_list())
+</code></pre><p>This way of implementing dependency injection can work for some scenarios when dealing with temporary assignments, but it can become problematic as the dependant has no reference to its dependencies.</p>
+<p>In other words, the student doesn&rsquo;t know which bus he/she is on other than the one someone said to board.</p>
+<p>Since there is no dependent reference to the dependency, it must be provided to every method call that needs it.</p>
+
+  
+
+
+  </main>
+  <footer>
+    <p>Copyright 2026. All rights reserved.</p>
+
+  </footer>
+</body>
+</html>
