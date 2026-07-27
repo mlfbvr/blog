@@ -1,3 +1,10 @@
+---
+title: Dependency Injection
+date: 2026-07-27
+draft: true
+tags:
+  - blog
+---
 ## Dependencies
 What an entity depends on to perform it's tasks.
 
