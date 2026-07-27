@@ -57,12 +57,5 @@
       <guid>https://mlfbvr.github.io/blog/posts/first-post/</guid>
       <description>Hello and welcome to my personal blog! My name is Martin Lefebvre, and I&amp;rsquo;m a full-stack software developer with a passion for technology that has spanned over two decades. With 20 years in software development and 30 years of experience with Linux, I&amp;rsquo;ve had a front-row seat to the incredible evolution of our industry. This blog is where I&amp;rsquo;ll be sharing my insights, experiences, and thoughts on the ever-changing world of tech.</description>
     </item>
-    <item>
-      <title></title>
-      <link>https://mlfbvr.github.io/blog/posts/dependency-injection/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://mlfbvr.github.io/blog/posts/dependency-injection/</guid>
-      <description>Dependencies What an entity depends on to perform it&amp;rsquo;s tasks.&#xA;Example: A bus carries students to and from school. Each student is assigned a seat on a dedicated bus route.&#xA;Each student depends on the bus to get to and from school. So the bus is a dependency of the student.&#xA;The bus doesn&amp;rsquo;t need the students to do its thing (drive around)&#xA;Without dependency injection, two scenarios are possible:</description>
-    </item>
   </channel>
 </rss>
