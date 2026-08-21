@@ -16,7 +16,7 @@ Let's be honest. Most of the time I just write "fix stuff" and hit enter. Then I
 
 That's where this small skill comes in.
 
-I use [opencode](https://opencode.ai), an AI coding assistant that runs in the terminal. It has a skill system where you can drop a `SKILL.md` file into a directory and teach it a new capability. I wrote one for commits, and it lives [here](https://github.com/mlfbvr/dotfiles/tree/main/opencode/.config/opencode/skills/git-commit).
+I use [opencode](https://opencode.ai), an AI coding assistant that runs in the terminal. It has a skill system where you can drop a `SKILL.md` file into a directory and teach it a new capability. I wrote one for commits, and it lives [here]( https://github.com/mlfbvr/skills/tree/a70fec224f4ed627cfbd1acf90c375536ee58419/git-commit).
 
 Here's what it does:
 
