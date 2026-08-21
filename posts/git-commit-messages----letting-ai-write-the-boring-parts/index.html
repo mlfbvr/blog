@@ -45,7 +45,7 @@
 <p>Let&rsquo;s be honest. Most of the time I just write &ldquo;fix stuff&rdquo; and hit enter. Then I feel guilty about it later.</p>
 <p><strong>The problem is friction.</strong> I know good commit hygiene matters — clean history, semantic versioning, changelogs. But after a long coding session, switching from &ldquo;building mode&rdquo; to &ldquo;writing mode&rdquo; feels like a tax I don&rsquo;t want to pay. The result? Sloppy messages, or worse, one giant &ldquo;wip&rdquo; commit that gets squashed later.</p>
 <p>That&rsquo;s where this small skill comes in.</p>
-<p>I use <a href="https://opencode.ai">opencode</a>, an AI coding assistant that runs in the terminal. It has a skill system where you can drop a <code>SKILL.md</code> file into a directory and teach it a new capability. I wrote one for commits, and it lives <a href="https://github.com/mlfbvr/dotfiles/tree/main/opencode/.config/opencode/skills/git-commit">here</a>.</p>
+<p>I use <a href="https://opencode.ai">opencode</a>, an AI coding assistant that runs in the terminal. It has a skill system where you can drop a <code>SKILL.md</code> file into a directory and teach it a new capability. I wrote one for commits, and it lives <a href="https://github.com/mlfbvr/skills/tree/a70fec224f4ed627cfbd1acf90c375536ee58419/git-commit">here</a>.</p>
 <p>Here&rsquo;s what it does:</p>
 <blockquote>
 <p>It analyses staged changes, determines the commit type (feat, fix, docs, refactor, test, chore, dep, or update), writes a concise &lt;50 character message and longer description following the conventional commit format, then presents it to me for review before committing.</p>
